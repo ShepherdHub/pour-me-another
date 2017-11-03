@@ -1,0 +1,6 @@
+{
+  "name": "pour-me-another-client",
+  "dependencies": {
+    "semantic-ui": "^2.2.13"
+  }
+}

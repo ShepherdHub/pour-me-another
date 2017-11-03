@@ -1,0 +1,45 @@
+<div class="ui items">
+  <div class="item">
+    <div class="image">
+      <img src="https://semantic-ui.com/images/wireframe/image.png">
+    </div>
+    <div class="content">
+      <div class="header">{{model.name}} {{ui-rating rating=model.rating maxRating=5 interactive=false class="star"}}</div>
+      <div class="meta">
+        <span>Brewery: {{model.brewery}}</span>
+      </div>
+      <div class="description">
+        <p>{{model.notes}}</p>
+      </div>
+      <div class="extra">
+        Style: {{model.style}} | ABV: {{model.abv}}% | Price: {{price-to-dollar-sign model.price}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="ui vertical segment">
+    <div class="ui header">Look</div>
+    <p>{{model.look}}</p>
+</div>
+<div class="ui vertical segment">
+    <div class="ui header">Smell</div>
+    <p>{{model.smell}}</p>
+</div>
+<div class="ui vertical segment">
+    <div class="ui header">Feel</div>
+    <p>{{model.feel}}</p>
+</div>
+<div class="ui vertical segment">
+    <div class="ui header">Taste</div>
+    <p>{{model.taste}}</p>
+</div>
+<div class="ui vertical segment">
+    <div class="ui header">Overall</div>
+    <p>{{model.overall}}</p>
+</div>
+
+<br><br>
+
+{{#link-to "beers.edit" model class="ui primary right floated button"}}Edit{{/link-to}}
