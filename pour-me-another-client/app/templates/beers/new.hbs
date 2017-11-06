@@ -4,37 +4,56 @@
 
 <form class="ui form" {{action "saveBeer" on="submit"}}>
   <h4 class="ui dividing header">Details</h4>
-  <div class="six wide required field">
-    <label>Name</label>
-    {{input value=beer.name placeholder="Name of beer"}}
-  </div>
-  <div class="six wide required field">
-    <label>Brewery</label>
-    {{input value=beer.brewery placeholder="Name of brewery"}}
-  </div>
-  <div class="six wide required field">
-    <label>Style</label>
-    {{input value=beer.style placeholder="Style of beer"}}
-  </div>
-  <div class="two wide field">
-    <label>ABV</label>
-    {{input type="number" value=beer.abv placeholder="0.0" step="0.1"}}
-  </div>
-  <div class="two wide field">
-    <label>Price</label>
-    {{#ui-dropdown class="selection" selected=beer.price onChange=(action (mut beer.price))}}
-      <div class="default text">Price</div>
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item" data-value=0>N/A</div>
-        <div class="item" data-value=1>1</div>
-        <div class="item" data-value=2>2</div>
-        <div class="item" data-value=3>3</div>
-        <div class="item" data-value=4>4</div>
-        <div class="item" data-value=5>5</div>
+  <div class="ui grid">
+    <div class="six wide column">
+      <div class="required field">
+        <label>Name</label>
+        {{input value=beer.name placeholder="Name of beer"}}
       </div>
-    {{/ui-dropdown}}
+      <div class="required field">
+        <label>Brewery</label>
+        {{input value=beer.brewery placeholder="Name of brewery"}}
+      </div>
+      <div class="required field">
+        <label>Style</label>
+        {{input value=beer.style placeholder="Style of beer"}}
+      </div>
+      <div class="eight wide field">
+        <label>ABV</label>
+        {{input type="number" value=beer.abv placeholder="0.0" step="0.1"}}
+      </div>
+      <div class="eight wide field">
+        <label>Price</label>
+        {{#ui-dropdown class="selection" selected=beer.price onChange=(action (mut beer.price))}}
+          <div class="default text">Price</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value=0>N/A</div>
+            <div class="item" data-value=1>1</div>
+            <div class="item" data-value=2>2</div>
+            <div class="item" data-value=3>3</div>
+            <div class="item" data-value=4>4</div>
+            <div class="item" data-value=5>5</div>
+          </div>
+        {{/ui-dropdown}}
+      </div>
+    </div>
+    <div class="four wide column"></div>
+    <div class="six wide column">
+      <h3 class="ui top attached header">
+        Pricing Guide
+      </h3>
+      <div class="ui attached segment">
+        <p>Please use the following guide when setting the price for the beer</p>
+        <p>$: $0.00 - $0.50 per beer</p>
+        <p>$$: $0.50 - $1.00 per beer</p>
+        <p>$$$: $1.00 - $2.00 per beer</p>
+        <p>$$$$: $2.00 - $4.00 per beer</p>
+        <p>$$$$$: $4.00+ per beer</p>
+      </div>
+    </div>
   </div>
+  
   <div class="field">
     <label>Description</label>
     {{textarea value=beer.notes rows="3"}}
@@ -77,6 +96,6 @@
     {{/ui-dropdown}}
   </div>
   
-  {{#link-to "index" class="ui basic negative button"}}Cancel{{/link-to}}
+  <button class="ui basic negative button" {{action "onCancel"}}>Cancel</button>
   <button class="ui basic primary button" type="submit">Save</button>
 </form>
